@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import NavBar from './components/NavBar/NavBar';
+import NavBar from './components/NavBar';
 import Typing from './components/Typing/Typing';
 import Tile from './components/Tile/Tile';
+import Banner from './components/Banner';
 function App() {
   return (
     <div className="App">
@@ -30,8 +31,15 @@ function App() {
         position={"img-right"}
         bgColor={"red"}
       />
+      <Banner />
     </div>
   );
 }
 
 export default App;
+
+
+// import 
+// ./NavBar.js
+// ./NavBar.jsx
+// ./NavBar/index.js
