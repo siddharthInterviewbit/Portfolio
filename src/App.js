@@ -5,6 +5,10 @@ import Typing from './components/Typing/Typing';
 import Tile from './components/Tile/Tile';
 import Banner from './components/Banner';
 import Progress from './components/Progress';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
 import { useEffect, useState } from 'react';
 function App() {
   const [percentage, setPercentage] = useState(0);
@@ -16,8 +20,10 @@ function App() {
     return () => clearInterval(interval);
   })
   return (
+    <Router>
+
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <NavBar />
       </header>
@@ -42,8 +48,14 @@ function App() {
         bgColor={"red"}
       />
       {/* <Banner /> */}
-      <Progress percentage={percentage}/>
-    </div>
+      {/* <Progress percentage={percentage}/> */} 
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+      </div>
+      </Router>
+
   );
 }
 
