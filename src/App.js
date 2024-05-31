@@ -4,7 +4,17 @@ import NavBar from './components/NavBar';
 import Typing from './components/Typing/Typing';
 import Tile from './components/Tile/Tile';
 import Banner from './components/Banner';
+import Progress from './components/Progress';
+import { useEffect, useState } from 'react';
 function App() {
+  const [percentage, setPercentage] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPercentage((prev) => (prev < 100 ? prev + 10 : 100));
+    }, 1000)
+
+    return () => clearInterval(interval);
+  })
   return (
     <div className="App">
       <header className="App-header">
@@ -31,7 +41,8 @@ function App() {
         position={"img-right"}
         bgColor={"red"}
       />
-      <Banner />
+      {/* <Banner /> */}
+      <Progress percentage={percentage}/>
     </div>
   );
 }

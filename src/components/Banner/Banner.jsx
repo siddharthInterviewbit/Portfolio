@@ -12,9 +12,26 @@ function Banner() {
   return (
     <div className="banner">
       <Carousel
-      autoplay
-      className="h-banner"
-    >
+        autoplay
+        className="h-banner"
+        showArrows
+        renderCenterLeftControls={({ previousSlide }) => (
+          <Icon
+            className="h-banner__control"
+            size={5}
+            path={mdiChevronLeft}
+            onClick={previousSlide}
+          />
+        )}
+        renderCenterRightControls={({ nextSlide }) => (
+          <Icon
+            className="h-banner__control"
+            size={5}
+            path={mdiChevronRight}
+            onClick={nextSlide}
+          />
+        )}
+      >
       {
         banners.map((bannerSrc) => {
           return <img key={bannerSrc} src={bannerSrc} alt={"b"} />
@@ -22,9 +39,7 @@ function Banner() {
       }
     </Carousel>
     </div>
-
   )
- 
 }
 
 export default Banner;
